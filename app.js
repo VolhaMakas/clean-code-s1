@@ -18,6 +18,7 @@ var completedTasksHolder=document.getElementById("completedTasks");//completed-t
 var createNewTaskElement=function(taskString){
 
     var listItem=document.createElement("li");
+    listItem.classList.add("task__link");
 
     //input (checkbox)
     var checkBox=document.createElement("input");//checkbx
@@ -89,7 +90,7 @@ var editTask=function(){
     var editInput=listItem.querySelector('input[type=text]');
     var label=listItem.querySelector("label");
     var editBtn=listItem.querySelector(".button_edit");
-    var containsClass=listItem.classList.contains("editMode");
+    var containsClass=listItem.classList.contains("edit");
     //If class of the parent is .editmode
     if(containsClass){
 
@@ -97,17 +98,17 @@ var editTask=function(){
         //label becomes the inputs value.
         label.innerText=editInput.value;
         editBtn.innerText="Edit";
-        editInput.classList.add('input__text--default')
-        editInput.classList.remove('input__text--edit')
+        editInput.classList.add('input__text--default');
+        editInput.classList.remove('input__text--edit');
     }else{
         editInput.value=label.innerText;
-        editInput.classList.remove('input__text--default')
-        editInput.classList.add('input__text--edit')
+        editInput.classList.remove('input__text--default');
+        editInput.classList.add('input__text--edit');
         editBtn.innerText="Save";
     }
 
     //toggle .editmode on the parent.
-    listItem.classList.toggle("editMode");
+    listItem.classList.toggle("edit");
 };
 
 
@@ -129,10 +130,10 @@ var taskCompleted=function(){
 
     //Append the task list item to the #completed-tasks
     var listItem=this.parentNode;
-    listItem.classList.remove('editMode')
+    listItem.classList.remove('edit');
     var editInput=listItem.querySelector('input[type=text]');
-    editInput.classList.add('input__text--default')
-    editInput.classList.remove('input__text--edit')
+    editInput.classList.add('input__text--default');
+    editInput.classList.remove('input__text--edit');
     completedTasksHolder.appendChild(listItem);
     bindTaskEvents(listItem, taskIncomplete);
 
