@@ -132,7 +132,7 @@ var taskCompleted=function(){
     //Append the task list item to the #completed-tasks
     var listItem=this.parentNode;
     listItem.classList.remove('edit');
-    listItem.classList.add("task__completed");
+    listItem.classList.remove("task__completed");
     var editInput=listItem.querySelector('input[type=text]');
     editInput.classList.add('input__text--default');
     editInput.classList.remove('input__text--edit');
