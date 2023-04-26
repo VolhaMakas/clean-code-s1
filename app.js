@@ -104,6 +104,7 @@ var editTask=function(){
         editInput.value=label.innerText;
         editInput.classList.remove('input__text--default');
         editInput.classList.add('input__text--edit');
+        label.classList.add("label");
         editBtn.innerText="Save";
     }
 
